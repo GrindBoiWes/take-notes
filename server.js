@@ -11,11 +11,11 @@ app.use(express.urlencoded({extended:true}));
 app.use((express.json()));
 
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Main/public/notes.html'));
+    res.sendFile(path.join(__dirname, 'public/assets/notes.html'));
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Main/public/index.html'));
+    res.sendFile(path.join(__dirname, 'public/assets/index.html'));
 })
 
 const notes = [];
