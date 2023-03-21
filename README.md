@@ -8,11 +8,15 @@ For running this app, you will need to run node server.js in the terminal, then 
 
 ## Screenshot / Gif
 
+<img src = "./public/assets/images/expressjs.gif">
+
 ## Links
 
 Render : https://take-notes-5fdl.onrender.com
 
 Github : https://github.com/GrindBoiWes/take-notes
+
+Google Drive : https://drive.google.com/file/d/1tsj1Td8wfPxeza5cp5PBm6FG72HFQRA9/view
 
 ## Credits
 Source material from previous modules, as well as a few sessions with askbcs. Mostly fixing my typos..
