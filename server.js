@@ -32,7 +32,7 @@ app.post('/api/notes', (req, res) => {
         text: req.body.text,
     };
     notes.push(newNote);
-    fs.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(notes));
+    fs.writeFileSync(path.join(__dirname, 'db/db.json'), JSON.stringify(notes));
     res.json(newNote)
 })
 // Defines an API endpoint for deleting a note by the notes ID
@@ -40,7 +40,7 @@ app.delete('/api/notes/:id', (req, res) => {
     const noteIndex = notes.findIndex(note => note.id === req.params.id);
         if (noteIndex !== -1) {
             notes.splice(noteIndex, 1);
-            fs.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(notes));
+            fs.writeFileSync(path.join(__dirname, 'db/db.json'), JSON.stringify(notes));
         }
         res.sendStatus(204);
 });
