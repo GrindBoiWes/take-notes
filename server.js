@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/assets/index.html'));
 })
 // Empty array to store notes data
+
+const dbFilePath = path.join(__dirname, 'db/db.json');
+
+
 const notes = [];
 // This section defines API endpoints for retrieving and creating data
 app.get('/api/notes', (req, res) => {
@@ -32,7 +36,7 @@ app.post('/api/notes', (req, res) => {
         text: req.body.text,
     };
     notes.push(newNote);
-    fs.writeFileSync(path.join(__dirname, 'db/db.json'), JSON.stringify(notes));
+    fs.writeFileSync(dbFilePath, JSON.stringify(notes));
     res.json(newNote)
 })
 // Defines an API endpoint for deleting a note by the notes ID
@@ -40,7 +44,7 @@ app.delete('/api/notes/:id', (req, res) => {
     const noteIndex = notes.findIndex(note => note.id === req.params.id);
         if (noteIndex !== -1) {
             notes.splice(noteIndex, 1);
-            fs.writeFileSync(path.join(__dirname, 'db/db.json'), JSON.stringify(notes));
+            fs.writeFileSync(dbFilePath, JSON.stringify(notes));
         }
         res.sendStatus(204);
 });
