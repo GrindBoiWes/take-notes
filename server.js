@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 const dbFilePath = path.join(__dirname, 'db/db.json');
 
 
-const notes = [];
+const notes = require('./db/db.json');
 // This section defines API endpoints for retrieving and creating data
 app.get('/api/notes', (req, res) => {
     res.json(notes);
