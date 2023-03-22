@@ -40,7 +40,7 @@ app.delete('/api/notes/:id', (req, res) => {
     const noteIndex = notes.findIndex(note => note.id === req.params.id);
         if (noteIndex !== -1) {
             notes.splice(noteIndex, 1);
-            s.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(notes));
+            fs.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify(notes));
         }
         res.sendStatus(204);
 });
